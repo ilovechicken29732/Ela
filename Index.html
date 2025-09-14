@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>FileGame Hub - Offline Game Launcher</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='6' y='6' width='36' height='36' fill='%23001111' stroke='%2300ffff' stroke-width='3' rx='6' ry='6'/%3E%3Ctext x='50%25' y='54%25' fill='%2300ffff' font-family='Arial, monospace' font-weight='bold' font-size='24' text-anchor='middle' dominant-baseline='middle'%3EF%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <aside id="sidebar" aria-label="Main Sidebar">
+    <div id="logo" aria-label="FileGame Hub Logo" role="img" tabindex="0">
+      <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="6" width="36" height="36" fill="#001111" stroke="#00ffff" stroke-width="3" rx="6" ry="6"/>
+        <text x="50%" y="62%" fill="#00ffff" font-family="Arial, monospace" font-weight="bold" font-size="24" text-anchor="middle" dominant-baseline="middle">F</text>
+      </svg>
+      <span>FileGame Hub</span>
+    </div>
+    <nav id="nav" role="navigation" aria-label="Main Navigation">
+      <button class="tab-btn active" data-tab="games" role="tab" aria-selected="true" aria-controls="games-panel">🎮 Games</button>
+      <button class="tab-btn" data-tab="about" role="tab" aria-selected="false" aria-controls="about-panel">ℹ️ About</button>
+      <button class="tab-btn" data-tab="settings" role="tab" aria-selected="false" aria-controls="settings-panel">⚙️ Settings</button>
+    </nav>
+    <footer>
+      <small>Made by West Fork student &copy; 2025</small>
+    </footer>
+  </aside>
+
+  <main id="content">
+    <section id="games-panel" class="tab-panel active" role="tabpanel" aria-labelledby="games" tabindex="0">
+      <h1>Offline Game Library</h1>
+      <div id="game-list" aria-label="List of games"></div>
+      <div id="game-area" aria-live="polite" aria-atomic="true">
+        <div id="placeholder">
+          <h2>Welcome!</h2>
+          <p>Select a game on the left to play offline. Choose play mode in Settings.</p>
+        </div>
+        <div id="fullscreen-wrapper" hidden>
+          <button id="exit-btn" aria-label="Exit game">Exit Game ✕</button>
+          <iframe id="game-iframe" src="" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-panel" class="tab-panel" role="tabpanel" aria-labelledby="about" tabindex="0" hidden>
+      <h1>About FileGame Hub</h1>
+      <p>A modern offline-first game launcher. Works directly from your files! No internet required.</p>
+      <ul>
+        <li>Dark mode theme with neon accents</li>
+        <li>Multiple play modes including fullscreen embed</li>
+        <li>Runs fully offline without server or internet</li>
+      </ul>
+      <p>Made with ❤️ by a West Fork student.</p>
+    </section>
+
+    <section id="settings-panel" class="tab-panel" role="tabpanel" aria-labelledby="settings" tabindex="0" hidden>
+      <h1>Settings</h1>
+      <label for="play-mode">Select Play Mode:</label>
+      <select id="play-mode" name="play-mode" aria-describedby="play-desc">
+        <option value="embed">Play embedded fullscreen</option>
+        <option value="newtab">Open in new tab</option>
+        <option value="blank">Open in private tab</option>
+      </select>
+      <p id="play-desc" class="sr-only">Choose how games open when selected.</p>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
